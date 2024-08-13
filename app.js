@@ -1,14 +1,17 @@
 const express = require('express')
+const connectToDatabase = require('./database')
 const app = express()
 
+connectToDatabase()
+
 app.get('/',(request,response)=>{
-    response.send({
+    response.status(200).json({
         message: 'Welcome to the API!'
     })
 })
 
-app.get('/about',(req,res)=>{
-    res.json({
+app.get('/about',(request,response)=>{
+    response.json({
         message: 'This is about page'
     })
 })
