@@ -5,16 +5,19 @@ const app = express()
 
 connectToDatabase()
 
+app.use(express.json())
+
 app.get('/',(request,response)=>{
     response.status(200).json({
         message: 'Welcome to the API!'
     })
 })
 
-app.get('/about',(request,response)=>{
-    response.json({
-        message: 'This is about page'
-    })
+app.post("/blog",(request,response)=>{
+    console.log(request.body)
+    response.status(200).json({
+        message: 'Blog api hit successfully'
+    })   
 })
 
 app.listen(process.env.PORT,()=>{
