@@ -10,6 +10,8 @@ function App() {
     <>
       <h1>Hello {name}</h1>
       <h1>React Project has started.</h1>
+      <h1>Babel</h1>
+      <p>Transpilation</p>
     </>
   )
 }
