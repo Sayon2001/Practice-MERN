@@ -1,9 +1,9 @@
 import NavBar from "./NavBar";
 
-function Home() {
+function Blog() {
     return (
         <NavBar />
     )
 }
 
-export default Home;
+export default Blog;
