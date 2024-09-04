@@ -1,8 +1,12 @@
 import NavBar from "./NavBar";
+import BlogForm from "./BlogForm";
 
 const CreateBlog = () => {
     return (
-        <NavBar></NavBar>
+        <>
+            <NavBar />
+            <BlogForm />
+        </>
     )
 }
 

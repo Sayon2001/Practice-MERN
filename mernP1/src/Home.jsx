@@ -5,7 +5,7 @@ function Home() {
     return (
         <>
             <NavBar />
-            <div className="blog-container">
+            <div className="blog-card-container">
                 <BlogCard />
                 <BlogCard />
                 <BlogCard />
