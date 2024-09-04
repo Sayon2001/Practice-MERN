@@ -1,8 +1,16 @@
+import BlogCard from "./BlogCard";
 import NavBar from "./NavBar";
 
 function Home() {
     return (
-        <NavBar />
+        <>
+            <NavBar />
+            <div className="blog-container">
+                <BlogCard />
+                <BlogCard />
+                <BlogCard />
+            </div>
+        </>
     )
 }
 
