@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 function BlogForm() {
     return (
         <div className="blog-form-container">
@@ -19,7 +21,7 @@ function BlogForm() {
                     <label htmlFor="description">Description : </label>
                     <textarea name="" id="description" rows="4" cols="50" placeholder="Enter the description here"></textarea>
                 </div>
-                <button>Submit</button>
+                <Button text="Submit"></Button>
             </form>
         </div>
     )
