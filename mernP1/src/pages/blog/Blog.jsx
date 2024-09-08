@@ -1,5 +1,5 @@
-import BlogPage from "./BlogPage";
-import NavBar from "./NavBar";
+import BlogPage from "../../components/BlogPage";
+import NavBar from "../../components/NavBar";
 
 function Blog() {
     return (

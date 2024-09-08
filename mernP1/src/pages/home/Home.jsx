@@ -1,5 +1,7 @@
-import BlogCard from "./BlogCard";
-import NavBar from "./NavBar";
+
+import UseState from "../../components/UseState";
+import BlogCard from "../../components/BlogCard";
+import NavBar from "../../components/NavBar";
 
 function Home() {
     return (
@@ -10,6 +12,7 @@ function Home() {
                 <BlogCard />
                 <BlogCard />
             </div>
+            <UseState />
         </>
     )
 }
