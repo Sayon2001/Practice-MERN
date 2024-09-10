@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import UseEffect from './components/UseEffect'
 
 
 import Home from './pages/home/Home'
@@ -17,7 +18,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/blog' element={<Blog />} />
-        <Route path='/createblog' element={<CreateBlog />} />
+        <Route path='/create-blog' element={<CreateBlog />} />
+        <Route path='/use-effect' element={<UseEffect />} />
       </Routes>
     </BrowserRouter>
   )
