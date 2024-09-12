@@ -5,6 +5,7 @@ const app = express()
 const {multer,storage} = require('./middleware/multerConfig')
 const upload  = multer({storage: storage})
 const Blog = require('./model/blogModel')
+const fs = require('fs')
 
 connectToDatabase()
 
@@ -60,9 +61,52 @@ app.get('/blog/:id',async(request, response) => {
 
 app.delete('/blog/:id',async (request, response) => {
     const id = request.params.id
+    const blog = await Blog.findById(id)
+    const imageName = blog.image
+    fs.unlinkSync(`storage/${imageName}`,(err)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log('Image deleted successfully')
+        }
+    })
     await Blog.findByIdAndDelete(id)
     response.status(200).json({
         message: 'Blog deleted successfully'
+    })
+})
+
+app.delete('/blog', async (request, response) => {
+    await Blog.deleteMany()
+    response.status(200).json({
+        message: 'All blogs deleted successfully'
+    })
+})
+
+app.patch('/blog/:id', upload.single('image'), async (request, response) => {
+    const id = request.params.id
+    const {title,subtitle,description} = request.body
+    let imageName;
+    if(request.file){
+        imageName = request.file.filename
+        const blog = await Blog.findById(id)
+        const oldImageName = blog.image
+        fs.unlinkSync(`storage/${oldImageName}`,(err)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log('Image deleted successfully')
+        }
+        })
+    }
+    await Blog.findByIdAndUpdate(id,{
+        title : title,
+        subtitle : subtitle,
+        description : description,
+        image : imageName
+    })
+    response.status(200).json({
+        message: 'Blog updated successfully'
     })
 })
 
