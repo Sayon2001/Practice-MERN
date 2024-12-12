@@ -1,11 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Card = ({ blog }) => {
     return (
-        <div>
+
+
+        <Link to={`/blog/${blog._id}`}>
             <div className="flex px-3 py-3">
                 <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                    <img className="w-full" src={`http://localhost:3000/${blog.image}`} alt="Sunset in the mountains" />
+                    <div className='flex items-center justify-center'><img className="w-[16rem]" src={`http://localhost:3000/${blog.image}`} alt="Sunset in the mountains" /></div>
                     <div className="px-6 py-4">
                         <div className="font-bold text-xl mb-2">{blog.title}</div>
                         <div className="font-bold text-lg mb-2">{blog.subtitle}</div>
@@ -20,7 +23,8 @@ const Card = ({ blog }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </Link>
+
     )
 }
 
